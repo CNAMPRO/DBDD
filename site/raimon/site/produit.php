@@ -37,7 +37,7 @@ $numProduit = $data['num_prd'];
 $request2 = DB::get()->query("select * from getNoteProduit(".$numProduit.")");
 $noteProduit = "";
 while($data = $request2->fetch()) {
-	$noteProduit = $data['getnoteproduit']
+	$noteProduit = $data['getnoteproduit'];
 }
 while($data = $request->fetch()) {
 	?>
