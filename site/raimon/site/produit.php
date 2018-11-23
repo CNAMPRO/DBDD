@@ -41,7 +41,7 @@ while($data = $request->fetch()) {
 		<td><?php echo	$data['libelle_prd']; ?></td>
 		<td><?php echo	$data['prixht_prd']; ?></td>
 		<td><?php echo	$data['nbstock_prd']; ?></td>
-		<td><?php echo	$data['libelle_type']; ?></td></tr>
+		<td><?php echo	$data['libelle_type']; ?></td>
 		<td><?php echo	$data['note']; ?></td></tr>
 	<?php
 }
