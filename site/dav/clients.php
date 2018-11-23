@@ -27,6 +27,9 @@ $request = DB::get()->query('select * from client');
 				<th>Prénom</th>
 				<th>Nom</th>
 				<th>Email</th>
+				<th>Sexe</th>
+				<th>Tel</th>
+				<th>DDN</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -38,6 +41,9 @@ while($data = $request->fetch()) {
 		<td><?php echo	$data['prenom']; ?></td> <!-- 'code' est une colonne de la BDD. -->
 		<td><?php echo	$data['nom']; ?></td>
 		<td><?php echo	$data['email']; ?></td>
+		<td><?php echo	$data['sexe']; ?></td>
+		<td><?php echo	$data['tel']; ?></td>
+		<td><?php echo	$data['date_naissance']; ?></td>
 	</tr>
 	<?php
 }
