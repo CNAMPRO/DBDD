@@ -28,6 +28,7 @@ $request = DB::get()->query('select * from produit natural join type');
 				<th>Prix</th>
 				<th>Nombre en stock</th>
 				<th>Type</th>
+				<th>Note</th>
 			</tr>
 		</thead>
 	<tbody>
