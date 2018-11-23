@@ -18,7 +18,7 @@ error_reporting(E_ALL);
 <?php
 include ('config.php');
 // On appelle la méthode statique get() de la classe DB qui renvoit une instance du PDO.
-$request = DB::get()->query('select * from produit natural join type');
+$request = DB::get()->query('select libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
 ?>
 	<table>
 		<caption>Liste des produit</caption>
@@ -36,19 +36,13 @@ $request = DB::get()->query('select * from produit natural join type');
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 
 while($data = $request->fetch()) {
-	$numProduit = $data['num_prd'];
-	$request2 = DB::get()->query("select * from getNoteProduit(".$numProduit.")");
-	$noteProduit = "";
-	while($data2 = $request2->fetch()) {
-		$noteProduit = $data2['getnoteproduit'];
-	}
 	?>
 	<tr>
 		<td><?php echo	$data['libelle_prd']; ?></td>
 		<td><?php echo	$data['prixht_prd']; ?></td>
 		<td><?php echo	$data['nbstock_prd']; ?></td>
 		<td><?php echo	$data['libelle_type']; ?></td></tr>
-		<td><?php echo	$noteProduit; ?></td></tr>
+		<td><?php echo	$data['note']; ?></td></tr>
 	<?php
 }
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
