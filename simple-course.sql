@@ -21,7 +21,7 @@ DROP TYPE IF EXISTS CARTE;
 -- Initialize the structure.
 -----------------------------------------------------------------------------
 
-CREATE type SEXE as enum('Male', 'Female', 'Other');
+CREATE type SEXE as enum('Homme', 'Femme', 'Autre');
 CREATE type CARTE as enum('visa', 'mastercard', 'americanexpress', 'jcb', 'instapayment');
 
 
