@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 include ('config.php');
 $query = "insert into CLIENT (prenom, nom, motdepasse, sexe, email, tel, date_naissance) values (prenom, nom, motdepasse, sexe, email, tel, date_naissance);";
-$req = DB::get()->prepare();
+$req = DB::get()->prepare($query);
 
 // Utilisation d'un try... catch pour captuer et gérer proprement les erreurs potentielles.
 try {
