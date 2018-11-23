@@ -13,7 +13,7 @@ try {
 		'description' => $_POST['description']
 		));
 		// redirection
-		header('location: ./courses.php');
+		header('location: ./clients.php');
 } catch(PDOException $erreur) {
 echo "Erreur ".$erreur->getMessage();
 }
