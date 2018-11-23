@@ -33,6 +33,12 @@ $request = DB::get()->query('select * from produit natural join type');
 	<tbody>
 <?php
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
+$numProduit = $data['num_prd'];
+$request2 = DB::get()->query("select * from getNoteProduit(".$numProduit.")");
+$noteProduit = "";
+while($data = $request2->fetch()) {
+	$noteProduit = $data['getnoteproduit']
+}
 while($data = $request->fetch()) {
 	?>
 	<tr>
@@ -40,6 +46,7 @@ while($data = $request->fetch()) {
 		<td><?php echo	$data['prixht_prd']; ?></td>
 		<td><?php echo	$data['nbstock_prd']; ?></td>
 		<td><?php echo	$data['libelle_type']; ?></td></tr>
+		<td><?php echo	$noteProduit; ?></td></tr>
 	<?php
 }
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
