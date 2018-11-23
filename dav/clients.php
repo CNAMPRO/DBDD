@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
    <head>
-       <title>Cours disponibles</title>
+       <title>Tous les clients </title>
        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
        <link rel="stylesheet" media="screen" type="text/css" title="style_tab" href="css/default.css" />
    </head>
@@ -45,6 +45,21 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 </tbody>
 </table>
+
+<!-- Toutes les données du formulaire seront envoyées à la page 'insertCourse.php' avec la méthode POST. -->
+<form method="post" action="insertClient.php">
+	<table><caption>Ajout d'un Client</caption>
+		<tr><td>Prénom : </td><td><input type="text" name="prenom" /></td></tr> </br>
+		<tr><td>nom : </td><td><input type="text" name="nom" /></td></tr></br>
+		<tr><td>email : </td><td><input type="text" name="email" /></td></tr></br>
+		<tr><td>mot de passe : </td><td><input type="password" name="motdepasse" /></td></tr></br>
+		<tr><td>Tel : </td><td><input type="text" name="tel" /></td></tr></br>
+		<tr><td>Sexe : </td><td><input type="text" name="sexe" /></td></tr></br>
+		<tr><td>DateNaissance : </td><td><input type="text" name="date_naissance" /></td></tr></br>
+
+		<tr><td></td><td><input type="submit" value="Valider" /></tr></br>
+	</table>
+</form>
 </body>
 </body>
 
