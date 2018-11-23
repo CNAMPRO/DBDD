@@ -1,4 +1,4 @@
-<?php
+<a?php
 // initialisation de la session
 // INDISPENSABLE À CETTE POSITION SI UTILISATION DES VARIABLES DE SESSION.
 session_start() ;
@@ -60,7 +60,6 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 		<tr><td></td><td><input type="submit" value="Valider" /></tr></br>
 	</table>
 </form>
-</body>
 </body>
 
 </html>
