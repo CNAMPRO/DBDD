@@ -29,7 +29,7 @@ $result = $finalRequest->fetch();
 
 ?>
 	<table>
-		<caption>Liste des clients</caption>
+		<caption>Notre client le plus fidèle est : </caption>
 		<thead>
 			<tr>
 				<th>Prénom</th>
