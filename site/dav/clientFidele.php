@@ -23,7 +23,15 @@ $request = DB::get()->query('select * from get_client_fidele();');
 <?php
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 $data = $request->fetch(); 
-$request->close();
-
-
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
+echo $data;
 echo $data;
