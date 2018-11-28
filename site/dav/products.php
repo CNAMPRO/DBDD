@@ -20,7 +20,7 @@ include ('config.php');
 
 
 // On appelle la méthode statique get() de la classe DB qui renvoit une instance du PDO.
-$request = DB::get()->query('select * from product;');
+$request = DB::get()->query('select * from produit;');
 ?>
 	<table>
 		<caption>Liste des produits</caption>
