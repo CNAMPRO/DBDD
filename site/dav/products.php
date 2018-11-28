@@ -39,10 +39,10 @@ while($data = $request->fetch()) {
 	?>
     <table method="post" action="commande.php">
 	<tr>
-        <td><input type="text" name="" value=<?php $data['ref_produit']?>></td>
+        <td><input type="text" name="ref_produit" value="<?php $data['ref_produit']?>"></td>
 		<td><?php echo	$data['nom']; ?></td>
 		<td><?php echo	$data['prix']; ?></td>
-        <td><input type="text" name="" value=<?php $data['nb_produit_commande']?>></td>
+        <td><input type="text" name="nb_produit_commande" value="<?php $data['nb']?>"></td>
         <td> <input type="submit" value="Commander"></td>
 	</tr>
     </table>
