@@ -18,7 +18,40 @@ error_reporting(E_ALL);
 <?php
 include ('config.php');
 // On appelle la méthode statique get() de la classe DB qui renvoit une instance du PDO.
+
+$requestClient = DB::get()->query('select * from client');
 $request = DB::get()->query('select libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
+?>
+	<table>
+		<caption>Vous êtes connecté en temps que</caption>
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prénom</th>
+				<th>Email</th>
+				<th>Sexe</th>
+				<th>Date de naissance</th>
+				<th>Date de dernière connexion</th>
+				<th>Date d'inscription</th>
+			</tr>
+		</thead>
+	<tbody>
+<?php
+// On récupère les données. Chaque ligne est sockée dans le tableau data.
+
+$data = $requestClient->fetch()
+	?>
+	<tr>
+		<td><?php echo	$data['nom_cli']; ?></td>
+		<td><?php echo	$data['prenom_cli']; ?></td>
+		<td><?php echo	$data['email_cli']; ?></td>
+		<td><?php echo	$data['sexe_cli']; ?></td>
+		<td><?php echo	$data['ddn_cli']; ?></td>
+		<td><?php echo	$data['dtlastconnexion_cli']; ?></td>
+		<td><?php echo	$data['dtinscription_cli']; ?></td>
+	</tr>
+	<?php
+$requestClient->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 	<table>
 		<caption>Liste des produit</caption>
@@ -50,17 +83,6 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 </tbody>
 </table>
 
-<!-- Toutes les données du formulaire seront envoyées à la page 'insertCourse.php' avec la méthode POST. -->
-<form method="post" action="insertProduit.php">
-	<table><caption>Ajout d'un produit</caption>
-		<tr><td>description : </td><td><textarea name="description" rows="5" cols="40"></textarea></td></tr> </br>
-		<tr><td>Prix : </td><td><input type="number" name="prix" /></td></tr></br>
-		<tr><td>nombre en stock : </td><td><input type="number" name="stock" /></br>
-		<tr><td>num Type : </td><td><input type="number" name="type" /></tr></br>  
-		<tr><td></td><td><input type="submit" value="Valider" /></tr></br>
-	</table>
-</form>
-</body>
 </body>
 
 </html>
