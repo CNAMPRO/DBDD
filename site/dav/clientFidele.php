@@ -24,7 +24,7 @@ $client_Id = $request->fetch(); // recupération de l'id du client le plus fidè
 
 
 // Exploitation d'id recupéré
-$finalRequest = DB::get()->query('select * from client where id = ' . $client_Id);
+$finalRequest = DB::get()->query('select * from client where id = ' . $client_Id[0]);
 $result = $finalRequest->fetch();
 
 ?>
