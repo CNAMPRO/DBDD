@@ -59,27 +59,33 @@ $requestClient->closeCursor(); // ne pas oublier de fermer le curseur.
 			<tr>
 				<th>Description</th>
 				<th>Prix</th>
-				<th>Nombre en stock</th>
 				<th>Type</th>
 				<th>Note</th>
+				<th>Quantite</th>
 			</tr>
 		</thead>
 	<tbody>
+<form method="post" action="insertCommande.php">
 <?php
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 
 while($data = $request->fetch()) {
-	?>
-	<tr>
-		<td><?php echo	$data['libelle_prd']; ?></td>
-		<td><?php echo	$data['prixht_prd']; ?></td>
-		<td><?php echo	$data['nbstock_prd']; ?></td>
-		<td><?php echo	$data['libelle_type']; ?></td>
-		<td><?php echo	$data['note']; ?></td></tr>
-	<?php
+	if($data['nbstock_prd'] > 0){
+		?>
+		<tr>
+			<td name="libelle"><?php echo	$data['libelle_prd']; ?></td>
+			<td><?php echo	$data['prixht_prd']; ?></td>
+			<td><?php echo	$data['libelle_type']; ?></td>
+			<td><?php echo	$data['note']; ?></td>
+			<td>><input type="number" name="quantite" /></td>
+		</tr>
+		<?php
+	}
 }
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
+<input type="submit" value="Valider la commande" />
+</form>
 </tbody>
 </table>
 
