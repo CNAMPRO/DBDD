@@ -20,7 +20,7 @@ include ('config.php');
 // On appelle la méthode statique get() de la classe DB qui renvoit une instance du PDO.
 
 $requestClient = DB::get()->query('select * from client');
-$request = DB::get()->query('select libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
+$request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
 ?>
 	<table>
 		<caption>Vous êtes connecté en temps que</caption>
@@ -73,7 +73,8 @@ while($data = $request->fetch()) {
 	if($data['nbstock_prd'] > 0){
 		?>
 		<tr>
-			<td name="libelle"><?php echo	$data['libelle_prd']; ?></td>
+			<td style="display:none;"><input type="number" name="id"/><?php echo	$data['num_prd']; ?></td></td>
+			<td><?php echo	$data['libelle_prd']; ?></td>
 			<td><?php echo	$data['prixht_prd']; ?></td>
 			<td><?php echo	$data['libelle_type']; ?></td>
 			<td><?php echo	$data['note']; ?></td>
