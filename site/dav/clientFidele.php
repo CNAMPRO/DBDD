@@ -42,13 +42,13 @@ $result = $finalRequest->fetch();
 		</thead>
 	<tbody>
 <?php
-if($data != null){ ?>
+if($result != null){ ?>
 	<tr>
-		<td><?php echo	$data['prenom']; ?></td> <!-- 'code' est une colonne de la BDD. -->
-		<td><?php echo	$data['nom']; ?></td>
-		<td><?php echo	$data['email']; ?></td>
-		<td><?php echo	$data['sexe']; ?></td>
-		<td><?php echo	$data['tel']; ?></td>
-		<td><?php echo	$data['date_naissance']; ?></td>
+		<td><?php echo	$result['prenom']; ?></td> <!-- 'code' est une colonne de la BDD. -->
+		<td><?php echo	$result['nom']; ?></td>
+		<td><?php echo	$result['email']; ?></td>
+		<td><?php echo	$result['sexe']; ?></td>
+		<td><?php echo	$result['tel']; ?></td>
+		<td><?php echo	$result['date_naissance']; ?></td>
 	</tr>
 <?php }; ?>
