@@ -18,7 +18,7 @@ try {
 		'type' => $_POST['type']
 		));
 		// redirection
-		header('location: ./produit.php');
+		header('location: produit.php');
 } catch(PDOException $erreur) {
 echo "Erreur ".$erreur->getMessage();
 }

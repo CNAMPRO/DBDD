@@ -11,6 +11,7 @@ error_reporting(E_ALL);
        <title>Produit</title>
        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
        <link rel="stylesheet" media="screen" type="text/css" title="style_tab" href="css/default.css" />
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    </head>
 
 <body>
@@ -61,11 +62,11 @@ $requestClient->closeCursor(); // ne pas oublier de fermer le curseur.
 				<th>Prix</th>
 				<th>Type</th>
 				<th>Note</th>
-				<th>Quantite</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 	<tbody>
-<form method="post" action="insertCommande.php">
+
 <?php
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 
@@ -73,23 +74,29 @@ while($data = $request->fetch()) {
 	if($data['nbstock_prd'] > 0){
 		?>
 		<tr>
-			<td style="display:none;"><input type="number" name="id"/><?php echo	$data['num_prd']; ?></td></td>
+			<td style="display:none;"><input class="num_prd" type="number" name="id"/><?php echo	$data['num_prd']; ?></td></td>
 			<td><?php echo	$data['libelle_prd']; ?></td>
 			<td><?php echo	$data['prixht_prd']; ?></td>
 			<td><?php echo	$data['libelle_type']; ?></td>
 			<td><?php echo	$data['note']; ?></td>
-			<td>><input type="number" name="quantite" /></td>
+			<td><input class="addpanier" type="submit" value="Ajouter au panier"/></td>
 		</tr>
 		<?php
 	}
 }
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
-<input type="submit" value="Valider la commande" />
-</form>
+
+
 </tbody>
 </table>
-
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on("click",".addpanier",function(){
+		alert($(this).parent().parent().find(".num_prd").val());
+	});
+	});
+</script>
 </body>
 
 </html>
