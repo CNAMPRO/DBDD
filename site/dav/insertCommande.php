@@ -2,6 +2,8 @@
 session_start() ;
 error_reporting(E_ALL);
 
+
+echo $_POST['ref_produit'];
 include ('config.php');
 $req = DB::get()->prepare("insert into Commande (ref_produit, nb_produit_commande) values (:ref_produit, :nb_produit_commande)");
 try {

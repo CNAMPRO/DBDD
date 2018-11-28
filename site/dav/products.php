@@ -30,6 +30,7 @@ $request = DB::get()->query('select * from produit;');
 				<th>nom</th>
 				<th>prix</th>
 				<th>nb</th>
+                <th>Commander</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -37,12 +38,12 @@ $request = DB::get()->query('select * from produit;');
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 while($data = $request->fetch()) {
 	?>
-    <table method="post" action="commande.php">
+    <table method="post" action="insertCommande.php">
 	<tr>
-        <td><input type="text" name="ref_produit" value="<?php $data['ref_produit']?>"></td>
+        <td><input type="text" name="ref_produit" value="<?php echo htmlspecialchars($data['ref_produit']); ?>" /></td>
 		<td><?php echo	$data['nom']; ?></td>
 		<td><?php echo	$data['prix']; ?></td>
-        <td><input type="text" name="nb_produit_commande" value="<?php $data['nb']?>"></td>
+        <td><input type="text" name="nb_produit_commande" value="<?php echo htmlspecialchars($data['nb']); ?>" /></td>
         <td> <input type="submit" value="Commander"></td>
 	</tr>
     </table>
