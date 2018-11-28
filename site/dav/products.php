@@ -37,32 +37,18 @@ $request = DB::get()->query('select * from produit;');
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 while($data = $request->fetch()) {
 	?>
+    <table method="post" action="commande.php">
 	<tr>
-		<td><?php echo	$data['ref_produit']; ?></td> <!-- 'code' est une colonne de la BDD. -->
+        <td><input type="text" name="" value=<?php $data['ref_produit']?>></td>
 		<td><?php echo	$data['nom']; ?></td>
 		<td><?php echo	$data['prix']; ?></td>
-		<td><?php echo	$data['nb']; ?></td>
+        <td><input type="text" name="" value=<?php $data['nb_produit_commande']?>></td>
+        <td> <input type="submit" value="Commander"></td>
 	</tr>
+    </table>
 	<?php
 }
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 </tbody>
 </table>
-
-<!-- Toutes les données du formulaire seront envoyées à la page 'insertCourse.php' avec la méthode POST. -->
-<form method="post" action="insertClient.php">
-	<table><caption>Ajout d'un Client</caption>
-		<tr><td>Prénom : </td><td><input type="text" name="prenom" /></td></tr> </br>
-		<tr><td>nom : </td><td><input type="text" name="nom" /></td></tr></br>
-		<tr><td>email : </td><td><input type="text" name="email" /></td></tr></br>
-		<tr><td>mot de passe : </td><td><input type="password" name="motdepasse" /></td></tr></br>
-		<tr><td>Tel : </td><td><input type="text" name="tel" /></td></tr></br>
-		<tr><td>Sexe : </td><td><input type="text" name="sexe" /></td></tr></br>
-		<tr><td>DateNaissance : </td><td><input type="text" name="date_naissance" /></td></tr></br>
-
-		<tr><td></td><td><input type="submit" value="Valider" /></tr></br>
-	</table>
-</form>
-</body>
-</html>
