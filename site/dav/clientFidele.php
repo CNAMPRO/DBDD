@@ -17,18 +17,38 @@ error_reporting(E_ALL);
 
 <?php
 include ('config.php');
-// On appelle la méthode statique get() de la classe DB qui renvoit une instance du PDO.
 $request = DB::get()->query('select * from get_client_fidele();');
 ?>
 <?php
-// On récupère les données. Chaque ligne est sockée dans le tableau data.
-$data = $request->fetch(); 
-echo $data[0];
-echo $data[0];
-echo $data[0];
-echo $data[0];
-echo $data[0];
-echo $data[0];
-echo $data[0];
-echo $data[0];
-echo $data[0];
+$client_Id = $request->fetch(); // recupération de l'id du client le plus fidèle
+
+
+// Exploitation d'id recupéré
+$finalRequest = DB::get()->query('select * from client where id = ' . $client_Id);
+$result = $finalRequest->fetch();
+
+?>
+	<table>
+		<caption>Liste des clients</caption>
+		<thead>
+			<tr>
+				<th>Prénom</th>
+				<th>Nom</th>
+				<th>Email</th>
+				<th>Sexe</th>
+				<th>Tel</th>
+				<th>DDN</th>
+			</tr>
+		</thead>
+	<tbody>
+<?php
+if($data != null){ ?>
+	<tr>
+		<td><?php echo	$data['prenom']; ?></td> <!-- 'code' est une colonne de la BDD. -->
+		<td><?php echo	$data['nom']; ?></td>
+		<td><?php echo	$data['email']; ?></td>
+		<td><?php echo	$data['sexe']; ?></td>
+		<td><?php echo	$data['tel']; ?></td>
+		<td><?php echo	$data['date_naissance']; ?></td>
+	</tr>
+<?php }; ?>
