@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 include ('config.php');
 //$req = DB::get()->prepare("insert into PRODUIT (libelle_prd, prixHT_prd, nbStock_prd, num_type) values (:description, :prix, :stock,:type)");
 
-echo $_POST['libelle'];
+echo $_POST['id'];
 echo $_POST['quantite'];
 
 // Utilisation d'un try... catch pour captuer et gérer proprement les erreurs potentielles.
