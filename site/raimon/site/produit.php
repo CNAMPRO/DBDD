@@ -24,7 +24,7 @@ $requestClient = DB::get()->query('select * from client');
 $request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
 $requestPanier = DB::get()->query('select ENREGISTRER.num_prd,libelle_prd, nbproduit_pan FROM ENREGISTRER NATURAL JOIN CLIENT NATURAL JOIN PRODUIT WHERE CLIENT.num_cli=1');
 ?>
-<h1>Vous êtes connecté en temps que</h1>
+<h1 style="text-align: center;">Vous êtes connecté en temps que</h1>
 	<table id="client" class="table">
 		<thead class="thead-dark">
 			<tr>
@@ -57,9 +57,10 @@ $data = $requestClient->fetch()
 $requestClient->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 </tbody>
-<h1>Liste des produits</h1>
+
 
 </table>
+<h1 style="text-align: center;">Liste des produits</h1>
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
@@ -84,7 +85,7 @@ while($data = $request->fetch()) {
 			<td><?php echo	$data['prixht_prd']; ?></td>
 			<td><?php echo	$data['libelle_type']; ?></td>
 			<td><?php echo	$data['note']; ?></td>
-			<td><input class="addpanier" type="submit" value="Ajouter au panier"/></td>
+			<td><input class="addpanier btn btn-primary btn-sm" type="submit" value="Ajouter au panier"/></td>
 		</tr>
 		<?php
 	}
@@ -95,8 +96,7 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 
 </tbody>
 </table>
-<h1>Panier</h1>
-
+<h1 style="text-align: center;">Panier</h1>
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
@@ -114,7 +114,7 @@ while($data = $requestPanier->fetch()) {
 	<tr>
 		<td><?php echo	$data['libelle_prd']; ?></td>
 		<td id="pan_<?php echo	$data['num_prd']; ?>"><?php echo	$data['nbproduit_pan']; ?></td>
-		<td><input data-id="<?php echo	$data['num_prd']; ?>" class="removepanier" type="submit" value="Retirer du panier"/></td>
+		<td><input data-id="<?php echo	$data['num_prd']; ?>" class="removepanier btn btn-primary btn-sm" type="submit" value="Retirer du panier"/></td>
 	</tr>
 	<?php
 }
@@ -144,7 +144,7 @@ $(document).ready(function(){
           	var html = "<tr>";
 			html += "<td>"+libelle+"</td>";
 			html += "<td id='pan_"+idPrd+"'>"+response+"</td>";
-			html += "<td><input data-id='"+idPrd+"' class='removepanier' type='submit' value='Retirer du panier'/></td>";
+			html += "<td><input data-id='"+idPrd+"' class='removepanier btn btn-primary btn-sm' type='submit' value='Retirer du panier'/></td>";
 			html += "</tr>";
 			$("#table_panier").append(html);
           }
