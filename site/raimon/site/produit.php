@@ -96,7 +96,7 @@ $(document).ready(function(){
 	$(document).on("click",".addpanier",function(){
 		var idClient = $("#client").find(".num_cli").text();
 		var idPrd = $(this).parent().parent().find(".num_prd").text();
-		alert(idCLient);
+		alert(idClient);
 		alert(idPrd);
 		$.ajax({
         url:"testJquery.php",
