@@ -16,6 +16,17 @@ while($data = $requestPanier->fetch()) {
 		'prix' => $prix,
 		'client' => $idClient
 		));
+	$idCommande = DB::get()->lastInsertId();
+	while($data = $requestPanier->fetch()) {
+		$nbPrd = $data['nbproduit_pan'];
+		$idPrd = $data['num_prd'];
+		$reqLigne = DB::get()->prepare("insert into lignecommande (num_cde, num_prd, nbproduit) values (:commande, :produit, :nbprd)");
+		$reqLigne->execute(array(
+		'commande' => $idCommande,
+		'produit' => $idPrd,
+		'nbprd' => $nbPrd
+		));
+}
 	} catch(PDOException $erreur) {
 		echo "Erreur ".$erreur->getMessage();
 	}
