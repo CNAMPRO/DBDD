@@ -107,13 +107,14 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 <?php
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 
-$data = $requestPanier->fetch()
+while($data = $requestPanier->fetch()) {
 	?>
 	<tr>
 		<td><?php echo	$data['libelle_prd']; ?></td>
 		<td><?php echo	$data['nbproduit_pan']; ?></td>
 	</tr>
 	<?php
+}
 $requestPanier->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 </tbody>
