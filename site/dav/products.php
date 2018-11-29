@@ -33,7 +33,9 @@ console.log(this);
 });
 
  $.ajax({
-         data: data,
+         data: {
+			 data: data
+		 },
          type: "post",
          url: "./insertCommande.php",
 		 success: function(res){  
