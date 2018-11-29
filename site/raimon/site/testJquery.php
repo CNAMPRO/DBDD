@@ -4,8 +4,10 @@ include ('config.php');
 $req = DB::get()->prepare("insert into ENREGISTRER(num_cli, num_prd, nbProduit_pan) values (:client, :produit, 1)");
 
 
-$idClient= $_GET['idClient'];
-$idPrd= $_GET['idPrd'];
+$idClient= $_POST['idClient'];
+$idPrd= $_POST['idPrd'];
+
+$requestPanier = DB::get()->query('select * from ENREGISTRER WHERE ');
 
 try {
 	$req->execute(array(
