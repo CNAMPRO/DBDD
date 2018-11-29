@@ -28,7 +28,7 @@ var maCde = $(".produitCommande").each(function(){
 console.log(this);
 	data.push({
 		id: this.id,
-		nb: this.data('nb')
+		nb: $(this).data('nb')
 	});
 });
 
