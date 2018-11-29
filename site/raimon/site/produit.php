@@ -23,7 +23,7 @@ include ('config.php');
 $requestClient = DB::get()->query('select * from client');
 $request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
 ?>
-	<table>
+	<table id="client">
 		<caption>Vous êtes connecté en temps que</caption>
 		<thead>
 			<tr>
@@ -43,6 +43,7 @@ $request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,l
 $data = $requestClient->fetch()
 	?>
 	<tr>
+		<td style="display:none;" class="num_cli"><?php echo	$data['num_cli']; ?></td>
 		<td><?php echo	$data['nom_cli']; ?></td>
 		<td><?php echo	$data['prenom_cli']; ?></td>
 		<td><?php echo	$data['email_cli']; ?></td>
@@ -93,13 +94,15 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 <script type="text/javascript">
 $(document).ready(function(){
 	$(document).on("click",".addpanier",function(){
-		var id = $(this).parent().parent().find(".num_prd").text();
+		var idClient = $("#client").find(".num_cli").text();
+		var idPrd = $(this).parent().parent().find(".num_prd").text();
 		$.ajax({
         url:"testJquery.php ",
         type:"POST",
 
         data:{
-          id: id
+          idClient: idClient,
+          idPrd: idPrd
         },
         success:function(response) {
           alert(response);
