@@ -26,8 +26,8 @@ $(document).on('click', '#ENVOYER', function(){
 var data = [];
 var maCde = $(".produitCommande").each(function(){
 	data.push(
-		id: this.id;
-		nb: this.data('nb');
+		id: this.id,
+		nb: this.data('nb')
 	)
 
 
