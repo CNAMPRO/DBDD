@@ -11,6 +11,7 @@ while($data = $requestPanier->fetch()) {
 		$dataPrix = $requestPrd->fetch();
 		$prix += $dataPrix['prixht_prd'];
 }
+$requestPanier->closeCursor();
 	try {
 	$req->execute(array(
 		'prix' => $prix,
