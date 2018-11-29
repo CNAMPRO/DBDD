@@ -101,6 +101,7 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 			<tr>
 				<th>Produit</th>
 				<th>Quantite</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -112,6 +113,7 @@ while($data = $requestPanier->fetch()) {
 	<tr>
 		<td><?php echo	$data['libelle_prd']; ?></td>
 		<td><?php echo	$data['nbproduit_pan']; ?></td>
+		<td><input class="removepanier" type="submit" value="Retirer du panier"/></td>
 	</tr>
 	<?php
 }
