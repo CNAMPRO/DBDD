@@ -15,7 +15,7 @@ try {
 		'date' => '2018/11/29',
 		'id_client' => 1
         ));
-        $id = $req->lastInsertId();
+        $id = DB::lastInsertId();
 
         echo $id;
         echo $id;
