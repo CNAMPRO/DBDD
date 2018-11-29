@@ -22,7 +22,7 @@ include ('config.php');
 
 $requestClient = DB::get()->query('select * from client');
 $request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
-$requestPanier = DB::get()->query('select libelle_prd, nbproduit_pan FROM ENREGISTRER NATURAL JOIN CLIENT NATURAL JOIN PRODUIT WHERE CLIENT.num_cli=1');
+$requestPanier = DB::get()->query('select ENREGISTRER.num_prd,libelle_prd, nbproduit_pan FROM ENREGISTRER NATURAL JOIN CLIENT NATURAL JOIN PRODUIT WHERE CLIENT.num_cli=1');
 ?>
 
 	<table id="client">
@@ -101,6 +101,7 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 			<tr>
 				<th>Produit</th>
 				<th>Quantite</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -112,6 +113,7 @@ while($data = $requestPanier->fetch()) {
 	<tr>
 		<td><?php echo	$data['libelle_prd']; ?></td>
 		<td><?php echo	$data['nbproduit_pan']; ?></td>
+		<td><input data-id="<?php echo	$data['num_prd']; ?>" class="removepanier" type="submit" value="Retirer du panier"/></td>
 	</tr>
 	<?php
 }
@@ -140,6 +142,29 @@ $(document).ready(function(){
        }
 
       });
+	});
+	$(document).on("click",".removepanier",function(){
+		var idClient = $("#client").find(".num_cli").text();
+		var idPrd = $(this).data("id");
+		alert(idPrd);
+		/*
+		$.ajax({
+        url:"testJquery.php",
+        type:"POST",
+
+        data:{
+          idClient: idClient,
+          idPrd: idPrd
+        },
+        success:function(response) {
+          alert(response);
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+		*/
 	});
 	});
 </script>

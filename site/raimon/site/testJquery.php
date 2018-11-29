@@ -26,7 +26,7 @@ if($nbPrd == 1){
 }else{
 	$reqUpdate = DB::get()->prepare("update ENREGISTRER SET nbproduit_pan = :nbprd WHERE num_cli = :client AND num_prd = :produit");
 	try {
-	$req->execute(array(
+	$reqUpdate->execute(array(
 		'client' => $idClient,
 		'produit' => $idPrd,
 		'nbprd' => $nbPrd
