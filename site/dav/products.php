@@ -51,7 +51,7 @@ while($data = $request->fetch()) {
         <td><input type="text" name="ref_produit" value="<?php echo htmlspecialchars($data['ref_produit']); ?>" /></td>
 		<td><?php echo	$data['nom']; ?></td>
 		<td><?php echo	$data['prix']; ?></td>
-        <td><input type="text" name="nb_produit_commande" value="<?php echo htmlspecialchars($data['nb']); ?>" data-id="<?php echo htmlspecialchars($data['nb']); ?>"   /></td>
+        <td><input type="text" name="nb_produit_commande" value="<?php echo htmlspecialchars($data['nb']); ?>" data-nb="<?php echo htmlspecialchars($data['nb']); ?>"   /></td>
         <td> <input type="submit" value="Commander" data-id="<?php echo htmlspecialchars($data['ref_produit']); ?>" class="submit"></td>
 	</tr>
     </table>
