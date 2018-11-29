@@ -136,7 +136,7 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
-          if(response != "1"){
+          if(response != 1){
           	$("#pan_"+idPrd).text(response);
           }else{
           	$html = "<tr>";
@@ -166,7 +166,7 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
-          if(response != "0"){
+          if(response != 0){
           	$("#pan_"+idPrd).text(response);
           }else{
           	obj.parent().parent().remove();
