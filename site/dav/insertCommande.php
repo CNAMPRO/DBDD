@@ -15,6 +15,12 @@ try {
 		'date' => '2018/11/29',
 		'id_client' => 1
         ));
+        $id = $req->lastInsertId();
+
+        echo $id;
+        echo $id;
+        echo $id;
+        echo $id;
 } catch(PDOException $erreur) {
 echo "Erreur ".$erreur->getMessage();
 }
@@ -26,4 +32,3 @@ echo "Erreur ".$erreur->getMessage();
 
 
 ?>	
-
