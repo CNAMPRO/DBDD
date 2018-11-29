@@ -17,7 +17,6 @@ error_reporting(E_ALL);
    $(document).on('click', '.submit', function(){
 	   alert("wesh alors");
 		console.log(this);
-});
    });
    </script>
 <body>
