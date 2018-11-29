@@ -146,10 +146,8 @@ $(document).ready(function(){
 	$(document).on("click",".removepanier",function(){
 		var idClient = $("#client").find(".num_cli").text();
 		var idPrd = $(this).data("id");
-		alert(idPrd);
-		/*
 		$.ajax({
-        url:"testJquery.php",
+        url:"removePanier.php",
         type:"POST",
 
         data:{
@@ -164,7 +162,7 @@ $(document).ready(function(){
        }
 
       });
-		*/
+		
 	});
 	});
 </script>
