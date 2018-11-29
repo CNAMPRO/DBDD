@@ -139,11 +139,11 @@ $(document).ready(function(){
           if(response != 1){
           	$("#pan_"+idPrd).text(response);
           }else{
-          	$html = "<tr>";
-			$html += "<td>"+libelle+"</td>";
-			$html += "<td id='pan_"+idPrd+"'>"+response+"</td>";
-			$html += "<td><input data-id='"+idPrd+"' class='removepanier' type='submit' value='Retirer du panier'/></td>";
-			$html += "</tr>";
+          	var html = "<tr>";
+			html += "<td>"+libelle+"</td>";
+			html += "<td id='pan_"+idPrd+"'>"+response+"</td>";
+			html += "<td><input data-id='"+idPrd+"' class='removepanier' type='submit' value='Retirer du panier'/></td>";
+			html += "</tr>";
 			$("#table_panier").append(html);
           }
        },
