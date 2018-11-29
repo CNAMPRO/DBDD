@@ -33,9 +33,18 @@ console.log(this);
 });
 
  $.ajax({
-         data: data,
+         data: {
+			 meh: 'wesh alors'
+		 },
          type: "post",
          url: "insertCommande.php",
+		 sucess: function(res){
+			 alert('FJKSLDFJKLSDPJHFOILSDJUIOFSDJLFKSDJKFLSDJKF');
+		 },
+		 fail: function(fail){
+			alert(fail);
+		 }
+		 
          
 });
 
