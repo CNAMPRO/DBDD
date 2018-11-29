@@ -12,7 +12,12 @@ error_reporting(E_ALL);
        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
        <link rel="stylesheet" media="screen" type="text/css" title="style_tab" href="css/default.css" />
    </head>
-
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+   <script>
+   $(document).on('click', '.submit', function(){
+	   alert("wesh alors");
+   });
+   </script>
 <body>
 
 <?php
@@ -44,7 +49,7 @@ while($data = $request->fetch()) {
 		<td><?php echo	$data['nom']; ?></td>
 		<td><?php echo	$data['prix']; ?></td>
         <td><input type="text" name="nb_produit_commande" value="<?php echo htmlspecialchars($data['nb']); ?>" /></td>
-        <td> <input type="submit" value="Commander"></td>
+        <td> <input type="submit" value="Commander" data-id="<?php echo htmlspecialchars($data['ref_produit']); ?>" class="submit"></td>
 	</tr>
     </table>
 	<?php
