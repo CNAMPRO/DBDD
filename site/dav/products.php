@@ -23,8 +23,12 @@ error_reporting(E_ALL);
 
 
 $(document).on('click', "#ENVOYER", funcion(){
-
 var data = {};
+var maCde = $(".produitCommande").each(function(el){
+	console.log(el);	
+})
+
+foreach()
 
 $.ajax({
          data: data,
