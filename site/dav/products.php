@@ -20,6 +20,26 @@ error_reporting(E_ALL);
 	   var nom = $(this).data('nom');
 	   $("#maCommande").append('<div class="produitCommande" id="'+id+'" data-nb="'+nb+'"> '+nom+' x ' + nb+'</div>');
    });
+
+
+$(document).on('click', "#ENVOYER", funcion(){
+
+var data = {};
+
+$.ajax({
+         data: data,
+         type: "post",
+         url: "insertCommande.php",
+         success: function(data){
+              alert("Data Save: " + data);
+         }
+});
+})
+
+
+
+
+
    </script>
 <body>
 
@@ -46,7 +66,7 @@ $request = DB::get()->query('select * from produit;');
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 while($data = $request->fetch()) {
 	?>
-    <table method="post" action="insertCommande.php">
+    <table method="post"  action="insertCommande.php">
 	<tr>
         <td><input type="text" name="ref_produit" value="<?php echo htmlspecialchars($data['ref_produit']); ?>" /></td>
 		<td><?php echo	$data['nom']; ?></td>
@@ -60,7 +80,9 @@ while($data = $request->fetch()) {
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 
-<div id="maCommande"></div>
+<div id="maCommande">
+</div>
+<div> <button id="ENVOYER"></button></div>
 
 
 </tbody>
