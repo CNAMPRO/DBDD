@@ -22,7 +22,9 @@ include ('config.php');
 
 $requestClient = DB::get()->query('select * from client');
 $request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
+$requestPanier = DB::get()->query('select libelle_prd, nbproduit_pan FROM ENREGISTRER NATURAL JOIN CLIENT NATURAL JOIN PRODUIT WHERE CLIENT.num_cli=1');
 ?>
+
 	<table id="client">
 		<caption>Vous êtes connecté en temps que</caption>
 		<thead>
@@ -55,6 +57,8 @@ $data = $requestClient->fetch()
 	<?php
 $requestClient->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
+</tbody>
+</table>
 	<table>
 		<caption>Liste des produit</caption>
 		<thead>
@@ -89,6 +93,29 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 
 
+</tbody>
+</table>
+	<table>
+		<caption>Panier</caption>
+		<thead>
+			<tr>
+				<th>Produit</th>
+				<th>Quantite</th>
+			</tr>
+		</thead>
+	<tbody>
+<?php
+// On récupère les données. Chaque ligne est sockée dans le tableau data.
+
+$data = $requestPanier->fetch()
+	?>
+	<tr>
+		<td><?php echo	$data['libelle_prd']; ?></td>
+		<td><?php echo	$data['nbproduit_pan']; ?></td>
+	</tr>
+	<?php
+$requestPanier->closeCursor(); // ne pas oublier de fermer le curseur.
+?>
 </tbody>
 </table>
 <script type="text/javascript">

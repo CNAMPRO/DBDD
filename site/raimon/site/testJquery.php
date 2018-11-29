@@ -17,7 +17,7 @@ try {
 	$req->execute(array(
 		'client' => $idClient,
 		'produit' => $idPrd,
-		'nbprd' => $nbprd
+		'nbprd' => $nbPrd
 		));
 } catch(PDOException $erreur) {
 	echo "Erreur ".$erreur->getMessage();
