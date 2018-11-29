@@ -33,18 +33,15 @@ console.log(this);
 });
 
  $.ajax({
-         data: {
-			 meh: 'wesh alors'
-		 },
+         data: data,
          type: "post",
          url: "./insertCommande.php",
 		 success: function(res){  
 			 alert(res);
     	},
     	error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-    } 
-         
+        	alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    	}         
 });
 
 
