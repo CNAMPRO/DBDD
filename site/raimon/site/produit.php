@@ -80,7 +80,7 @@ while($data = $request->fetch()) {
 		?>
 		<tr>
 			<td style="display:none;" class="num_prd"><?php echo	$data['num_prd']; ?></td>
-			<td><?php echo	$data['libelle_prd']; ?></td>
+			<td class="libelle_prd"><?php echo	$data['libelle_prd']; ?></td>
 			<td><?php echo	$data['prixht_prd']; ?></td>
 			<td><?php echo	$data['libelle_type']; ?></td>
 			<td><?php echo	$data['note']; ?></td>
@@ -104,7 +104,7 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 				<th>Action</th>
 			</tr>
 		</thead>
-	<tbody>
+	<tbody id ="table_panier">
 <?php
 // On récupère les données. Chaque ligne est sockée dans le tableau data.
 
@@ -126,6 +126,7 @@ $(document).ready(function(){
 	$(document).on("click",".addpanier",function(){
 		var idClient = $("#client").find(".num_cli").text();
 		var idPrd = $(this).parent().parent().find(".num_prd").text();
+		var libelle = $(this).parent().parent().find(".libelle_prd").text();
 		$.ajax({
         url:"testJquery.php",
         type:"POST",
@@ -136,9 +137,14 @@ $(document).ready(function(){
         },
         success:function(response) {
           if(response != "1"){
-
+          	$("#pan_"+idPrd).text(response);
           }else{
-
+          	$html = "<tr>";
+			$html += "<td>"+libelle+"</td>";
+			$html += "<td id='pan_"+idPrd+"'>"+response+"</td>";
+			$html += "<td><input data-id='"+idPrd+"' class='removepanier' type='submit' value='Retirer du panier'/></td>";
+			$html += "</tr>";
+			$(".table_panier").append(html);
           }
        },
        error:function(){
@@ -150,6 +156,7 @@ $(document).ready(function(){
 	$(document).on("click",".removepanier",function(){
 		var idClient = $("#client").find(".num_cli").text();
 		var idPrd = $(this).data("id");
+		var obj = $(this);
 		$.ajax({
         url:"removePanier.php",
         type:"POST",
@@ -159,7 +166,11 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
-          alert(response);
+          if(response != "0"){
+          	$("#pan_"+idPrd).text(response);
+          }else{
+          	obj.parent().parent().remove();
+          }
        },
        error:function(){
         alert("error");
