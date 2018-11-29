@@ -59,10 +59,12 @@ while($data = $request->fetch()) {
 }
 $request->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
+
+<div id="maCommande"></div>
+
+
 </tbody>
 </table>
 
 
 
-
-<div id="maCommande"></div>
