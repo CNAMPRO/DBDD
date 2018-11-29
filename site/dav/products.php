@@ -32,6 +32,15 @@ console.log(this);
 	});
 });
 
+ $.ajax({
+         data: data,
+         type: "post",
+         url: "insertCommande.php",
+         success: function(data){
+              alert("Data Save: " + data);
+         }
+});
+
 
 console.log(data);
 });
