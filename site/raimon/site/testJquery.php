@@ -37,5 +37,4 @@ if($nbPrd == 1){
 }
 echo $nbPrd;
 ?>
-</html>
 
