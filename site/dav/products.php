@@ -18,9 +18,7 @@ error_reporting(E_ALL);
 	   
 	   var id = this.data('id');
 	   var nb = this.data('nb');
-	   $("#maCommande").append(
-		   '<div class="produitCommande" id="'+id+'" data-nb="'+nb+'"> </div>';
-	   );
+	   $("#maCommande").append('<div class="produitCommande" id="'+id+'" data-nb="'+nb+'"> </div>');
    });
    </script>
 <body>
