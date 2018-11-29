@@ -8,11 +8,13 @@ $data = isset($_POST['data']) ? $_POST['data'] :"";
 
 include ('config.php');
 $query = "insert into COMMANDE (date, id_client) values (:date, :id_client);";
+$req = DB::get()->prepare($query);
+$id = 0;
 try {
 	$req->execute(array(
 		'date' => '2018/11/29',
 		'id_client' => 1
-		));
+        ));
 } catch(PDOException $erreur) {
 echo "Erreur ".$erreur->getMessage();
 }
