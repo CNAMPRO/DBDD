@@ -22,25 +22,12 @@ error_reporting(E_ALL);
    });
 
 
-$(document).on('click', "#ENVOYER", funcion(){
+$(document).on('click', '#ENVOYER', funcion(){
 var data = {};
 var maCde = $(".produitCommande").each(function(el){
 	console.log(el);	
 });
-
-$.ajax({
-         data: data,
-         type: "post",
-         url: "insertCommande.php",
-         success: function(data){
-              alert("Data Save: " + data);
-         }
 });
-})
-
-
-
-
 
    </script>
 <body>
