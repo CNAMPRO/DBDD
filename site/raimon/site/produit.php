@@ -93,7 +93,22 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 <script type="text/javascript">
 $(document).ready(function(){
 	$(document).on("click",".addpanier",function(){
-		alert($(this).parent().parent().find(".num_prd").text());
+		var id = $(this).parent().parent().find(".num_prd").text();
+		$.ajax({
+        url:"testJquery.php ",
+        type:"POST",
+
+        data:{
+          id: id
+        },
+        success:function(response) {
+          alert("ok");
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
 	});
 	});
 </script>
