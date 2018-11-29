@@ -31,6 +31,7 @@ if($nbPrd == 0){
 		echo "Erreur ".$erreur->getMessage();
 	}
 }
+echo $nbPrd;
 ?>
 </html>
 

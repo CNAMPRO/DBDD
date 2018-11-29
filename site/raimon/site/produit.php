@@ -137,7 +137,7 @@ $(document).ready(function(){
         },
         success:function(response) {
           if(response != "1"){
-          	$("pan_"+$idPrd).text(response);
+          	$("pan_"+idPrd).text(response);
           }else{
           	$html = "<tr>";
 			$html += "<td>"+libelle+"</td>";
@@ -156,6 +156,7 @@ $(document).ready(function(){
 	$(document).on("click",".removepanier",function(){
 		var idClient = $("#client").find(".num_cli").text();
 		var idPrd = $(this).data("id");
+		var obj = $(this);
 		$.ajax({
         url:"removePanier.php",
         type:"POST",
@@ -165,7 +166,16 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
-          alert(response);
+          if(response != "0"){
+          	$("pan_"+$idPrd).text(response);
+          }else{
+          	$html = "<tr>";
+			$html += "<td>"+libelle+"</td>";
+			$html += "<td id='pan_"+idPrd+"'>"+response+"</td>";
+			$html += "<td><input data-id='"+idPrd+"' class='removepanier' type='submit' value='Retirer du panier'/></td>";
+			$html += "</tr>";
+			$(".table_panier").append(html);
+          }
        },
        error:function(){
         alert("error");
