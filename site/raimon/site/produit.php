@@ -137,7 +137,7 @@ $(document).ready(function(){
         },
         success:function(response) {
           if(response != "1"){
-          	$("pan_"+idPrd).text(response);
+          	$("#pan_"+idPrd).text(response);
           }else{
           	$html = "<tr>";
 			$html += "<td>"+libelle+"</td>";
@@ -167,7 +167,7 @@ $(document).ready(function(){
         },
         success:function(response) {
           if(response != "0"){
-          	$("pan_"+$idPrd).text(response);
+          	$("#pan_"+idPrd).text(response);
           }else{
           	$html = "<tr>";
 			$html += "<td>"+libelle+"</td>";
