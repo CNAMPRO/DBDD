@@ -74,7 +74,7 @@ while($data = $request->fetch()) {
 	if($data['nbstock_prd'] > 0){
 		?>
 		<tr>
-			<td style="display:none;"><input class="num_prd" type="number" name="id"/><?php echo	$data['num_prd']; ?></td></td>
+			<td style="display:none;" class="num_prd"><?php echo	$data['num_prd']; ?></td>
 			<td><?php echo	$data['libelle_prd']; ?></td>
 			<td><?php echo	$data['prixht_prd']; ?></td>
 			<td><?php echo	$data['libelle_type']; ?></td>
@@ -93,7 +93,22 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 <script type="text/javascript">
 $(document).ready(function(){
 	$(document).on("click",".addpanier",function(){
-		alert($(this).parent().parent().find(".num_prd").val());
+		var id = $(this).parent().parent().find(".num_prd").text();
+		$.ajax({
+        url:"testJquery.php ",
+        type:"POST",
+
+        data:{
+          id: id
+        },
+        success:function(response) {
+          alert("ok");
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
 	});
 	});
 </script>
