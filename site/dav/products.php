@@ -22,7 +22,7 @@ error_reporting(E_ALL);
    });
 
 
-$(document).on('click', '#ENVOYER', funcion(){
+$(document).on('click', '#ENVOYER', function(){
 var data = {};
 var maCde = $(".produitCommande").each(function(el){
 	console.log(el);	
