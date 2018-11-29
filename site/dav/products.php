@@ -37,14 +37,13 @@ console.log(this);
 			 meh: 'wesh alors'
 		 },
          type: "post",
-         url: "insertCommande.php",
-		 sucess: function(res){
-			 alert('FJKSLDFJKLSDPJHFOILSDJUIOFSDJLFKSDJKFLSDJKF');
-		 },
-		 fail: function(fail){
-			alert(fail);
-		 }
-		 
+         url: "./insertCommande.php",
+		 success: function(){  
+			 alert('sucess');
+    	},
+    	error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    } 
          
 });
 
