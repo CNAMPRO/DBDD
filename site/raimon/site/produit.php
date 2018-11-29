@@ -180,6 +180,26 @@ $(document).ready(function(){
       });
 		
 	});
+	$(document).on("click",".validpanier",function(){
+		var idClient = $("#client").find(".num_cli").text();
+		$.ajax({
+        url:"validePanier.php",
+        type:"POST",
+
+        data:{
+          idClient: idClient
+        },
+        success:function(response) {
+          $("#table_panier").children().remove();
+          alert("commande validé !")
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+		
+	});
 	});
 </script>
 </body>
