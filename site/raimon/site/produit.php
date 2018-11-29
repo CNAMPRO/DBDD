@@ -97,7 +97,7 @@ $(document).ready(function(){
 		var idClient = $("#client").find(".num_cli").text();
 		var idPrd = $(this).parent().parent().find(".num_prd").text();
 		$.ajax({
-        url:"testJquery.php ",
+        url:"testJquery.php",
         type:"POST",
 
         data:{
