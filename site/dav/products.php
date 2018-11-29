@@ -15,10 +15,10 @@ error_reporting(E_ALL);
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
    <script>
    $(document).on('click', '.submit', function(){
-	   
 	   var id = $(this).data('id');
 	   var nb = $(this).parent().parent().find('input').get(1).value;
-	   $("#maCommande").append('<div class="produitCommande" id="'+id+'" data-nb="'+nb+'"> </div>');
+	   var nom = $(this).data('nom');
+	   $("#maCommande").append('<div class="produitCommande" id="'+id+'" data-nb="'+nb+'"> '+nom+' x ' + nb+'</div>');
    });
    </script>
 <body>
