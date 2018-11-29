@@ -39,7 +39,10 @@ console.log(this);
          type: "post",
          url: "insertCommande.php",
 		 sucess: function(res){
-			 console.log(res);
+			 alert('FJKSLDFJKLSDPJHFOILSDJUIOFSDJLFKSDJKFLSDJKF');
+		 },
+		 fail: function(fail){
+			alert(fail);
 		 }
 		 
          
