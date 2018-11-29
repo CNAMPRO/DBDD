@@ -10,8 +10,8 @@ error_reporting(E_ALL);
    <head>
        <title>Produit</title>
        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-       <link rel="stylesheet" media="screen" type="text/css" title="style_tab" href="css/default.css" />
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    </head>
 
 <body>
@@ -24,10 +24,9 @@ $requestClient = DB::get()->query('select * from client');
 $request = DB::get()->query('select num_prd,libelle_prd,prixht_prd,nbstock_prd,libelle_type, (select * from getNoteProduit(num_prd)) as note from produit natural join type');
 $requestPanier = DB::get()->query('select ENREGISTRER.num_prd,libelle_prd, nbproduit_pan FROM ENREGISTRER NATURAL JOIN CLIENT NATURAL JOIN PRODUIT WHERE CLIENT.num_cli=1');
 ?>
-
-	<table id="client">
-		<caption>Vous êtes connecté en temps que</caption>
-		<thead>
+<h1>Vous êtes connecté en temps que</h1>
+	<table id="client" class="table">
+		<thead class="thead-dark">
 			<tr>
 				<th>Nom</th>
 				<th>Prénom</th>
@@ -58,10 +57,11 @@ $data = $requestClient->fetch()
 $requestClient->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 </tbody>
+<h1>Liste des produits</h1>
+
 </table>
-	<table>
-		<caption>Liste des produit</caption>
-		<thead>
+	<table class="table">
+		<thead class="thead-dark">
 			<tr>
 				<th>Description</th>
 				<th>Prix</th>
@@ -95,9 +95,10 @@ $request->closeCursor(); // ne pas oublier de fermer le curseur.
 
 </tbody>
 </table>
-	<table>
-		<caption>Panier</caption>
-		<thead>
+<h1>Panier</h1>
+
+	<table class="table">
+		<thead class="thead-dark">
 			<tr>
 				<th>Produit</th>
 				<th>Quantite</th>
