@@ -144,7 +144,7 @@ $(document).ready(function(){
 			$html += "<td id='pan_"+idPrd+"'>"+response+"</td>";
 			$html += "<td><input data-id='"+idPrd+"' class='removepanier' type='submit' value='Retirer du panier'/></td>";
 			$html += "</tr>";
-			$(".table_panier").append(html);
+			$("#table_panier").append(html);
           }
        },
        error:function(){
@@ -166,7 +166,6 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
-        	alert(response);
           if(response != 0){
           	$("#pan_"+idPrd).text(response);
           }else{
