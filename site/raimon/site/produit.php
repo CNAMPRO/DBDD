@@ -166,6 +166,7 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
+        	alert(response);
           if(response != 0){
           	$("#pan_"+idPrd).text(response);
           }else{
