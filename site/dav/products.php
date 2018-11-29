@@ -17,7 +17,7 @@ error_reporting(E_ALL);
    $(document).on('click', '.submit', function(){
 	   
 	   var id = $(this).data('id');
-	   var nb = $(this).data('nb');
+	   var nb = $(this).parent().parent().find('input').get(1).value;
 	   $("#maCommande").append('<div class="produitCommande" id="'+id+'" data-nb="'+nb+'"> </div>');
    });
    </script>
