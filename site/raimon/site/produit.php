@@ -112,7 +112,7 @@ while($data = $requestPanier->fetch()) {
 	?>
 	<tr>
 		<td><?php echo	$data['libelle_prd']; ?></td>
-		<td><?php echo	$data['nbproduit_pan']; ?></td>
+		<td id="pan_<?php echo	$data['num_prd']; ?>"><?php echo	$data['nbproduit_pan']; ?></td>
 		<td><input data-id="<?php echo	$data['num_prd']; ?>" class="removepanier" type="submit" value="Retirer du panier"/></td>
 	</tr>
 	<?php
@@ -135,7 +135,11 @@ $(document).ready(function(){
           idPrd: idPrd
         },
         success:function(response) {
-          alert(response);
+          if(response != "1"){
+
+          }else{
+
+          }
        },
        error:function(){
         alert("error");
