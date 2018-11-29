@@ -121,6 +121,7 @@ $requestPanier->closeCursor(); // ne pas oublier de fermer le curseur.
 ?>
 </tbody>
 </table>
+<input class="validpanier" type="submit" value="Valider la commande"/>
 <script type="text/javascript">
 $(document).ready(function(){
 	$(document).on("click",".addpanier",function(){
