@@ -37,7 +37,6 @@ console.log(this);
          type: "post",
          url: "insertCommande.php",
          success: function(data){
-              alert("Data Save: " + data);
          }
 });
 
