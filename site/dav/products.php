@@ -36,8 +36,7 @@ console.log(this);
          data: data,
          type: "post",
          url: "insertCommande.php",
-         success: function(data){
-         }
+         
 });
 
 
