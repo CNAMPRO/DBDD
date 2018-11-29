@@ -27,7 +27,12 @@ $requestPanier->closeCursor();
 		'produit' => $idPrd,
 		'nbprd' => $nbPrd
 		));
-}
+	}
+	$reqDelete = DB::get()->prepare("DELETE FROM ENREGISTRER WHERE num_cli = :client");
+	$reqDelete->execute(array(
+		'client' => $idClient
+		));
+
 	} catch(PDOException $erreur) {
 		echo "Erreur ".$erreur->getMessage();
 	}
