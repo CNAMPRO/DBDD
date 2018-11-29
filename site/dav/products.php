@@ -25,10 +25,13 @@ error_reporting(E_ALL);
 $(document).on('click', '#ENVOYER', function(){
 var data = [];
 var maCde = $(".produitCommande").each(function(){
-	data.push(
-		id: this.id,
-		nb: this.data('nb')
-	)
+
+
+console.log(this);
+//	data.push(
+//		id: this.id,
+//		nb: this.data('nb')
+//	)
 
 
 
