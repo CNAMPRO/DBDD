@@ -16,15 +16,27 @@ try {
 		'id_client' => 1
         ));
         $id = DB::get()->lastInsertId();
-
-        echo $id;
-        echo $id;
-        echo $id;
-        echo $id;
 } catch(PDOException $erreur) {
 echo "Erreur ".$erreur->getMessage();
 }
 
+
+foreach($data as $ligneCommande){
+ $queryL = "insert into DETAILS_COMMANDE (ref_commande, ref_produit, nb_produit_commande) values (:ref_commande, :ref_produit, :nb_produit_commande)";
+ $req = DB::get()->prepare($queryL);
+ try {
+     $req->execute(array(
+         'ref_commande' => $id,
+         'ref_produit' => $ligneCommande['id'],
+         'nb_produit_commande' => $ligneCommande['nb']
+         ));
+ } catch(PDOException $erreur) {
+ echo "Erreur ".$erreur->getMessage();
+ }
+
+
+
+}
 
 
 
