@@ -102,7 +102,7 @@ $(document).ready(function(){
           id: id
         },
         success:function(response) {
-          alert("ok");
+          alert(response);
        },
        error:function(){
         alert("error");
