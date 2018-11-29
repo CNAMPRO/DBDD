@@ -38,8 +38,8 @@ console.log(this);
 		 },
          type: "post",
          url: "./insertCommande.php",
-		 success: function(){  
-			 alert('sucess');
+		 success: function(res){  
+			 alert(res);
     	},
     	error: function(XMLHttpRequest, textStatus, errorThrown) { 
         alert("Status: " + textStatus); alert("Error: " + errorThrown); 
