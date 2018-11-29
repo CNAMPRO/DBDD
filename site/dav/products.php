@@ -12,7 +12,7 @@ error_reporting(E_ALL);
        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
        <link rel="stylesheet" media="screen" type="text/css" title="style_tab" href="css/default.css" />
    </head>
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
    <script>
    $(document).on('click', '.submit', function(){
 	   var id = $(this).data('id');
